@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Homework</title>
+</head>
+<body>
+	<style>
+		body {
+			margin: 0;
+			position: relative;
+		}
+
+		div {
+			width: 500px;
+			height: 300px;
+			position: absolute;
+			left:0;
+			border:2px solid black;
+		}
+
+	</style>
+	
+
+	<script>
+	lefts=0;
+	function myFunc(n){
+		for(var i=0; i<n; i++){
+			a=Math.floor(Math.random()*255);
+			b=Math.floor(Math.random()*255);
+			c=Math.floor(Math.random()*255);
+			var divs=document.createElement("div");
+			document.body.appendChild(divs);
+			divs.style.left=lefts+"px";
+			divs.style.background = 'rgb('+a+','+b+','+c+')'
+			lefts+=60;
+			index=0
+			divs.addEventListener("click", function(){
+				var divv=document.querySelectorAll("div");
+				// index++;
+				// this.style.zIndex=index;
+					for(i=0;i<n;i++){
+						if(this.style.left<divv[i].style.left){
+						index--;
+						divv[i].style.zIndex=index;
+						this.style.zIndex=n;
+
+					}
+				}
+			})
+	}
+}
+myFunc(10)
+	</script>
+</body>
+</html>
