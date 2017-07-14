@@ -33,17 +33,28 @@
 			divs.style.left=lefts+"px";
 			divs.style.background = 'rgb('+a+','+b+','+c+')'
 			lefts+=60;
-			index=0
+
+			k=n;
+			index=0;
+			kindex=1;
+
 			divs.addEventListener("click", function(){
 				var divv=document.querySelectorAll("div");
-				// index++;
-				// this.style.zIndex=index;
-					for(i=0;i<n;i++){
+				// this.style.zIndex=k;
+				// k++;
+
+					for(var i=0;i<n;i++){
 						if(this.style.left<divv[i].style.left){
 						index--;
 						divv[i].style.zIndex=index;
 						this.style.zIndex=n;
+						n+=kindex;
 
+					  } else if(this.style.left>divv[i].style.left){
+						kindex++;
+						divv[i].style.zIndex=kindex;
+						this.style.zIndex=n;
+						n+=kindex;
 					}
 				}
 			})
